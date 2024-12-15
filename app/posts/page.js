@@ -1,5 +1,5 @@
 import { fetchPosts } from '../../utils/api';
-import PostList from '../../components/PostList';
+import PostList from '../../components/postListostList';
 
 export default async function PostsPage() {
   const posts = await fetchPosts();
