@@ -4,8 +4,12 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="bg-blue-500 p-4">
-      <ul className="flex space-x-4">
+    <nav className="bg-blue-500 py-5 px-8 flex items-center justify-between">
+          <Link href="/" className="text-white hover:scale-105 text-2xl"
+          >
+            CRUD
+          </Link>
+      <ul className="flex space-x-4 text-lg">
         <li>
           <Link href="/" className="text-white hover:underline">
             Home
@@ -22,6 +26,7 @@ export default function Navbar() {
           </Link>
         </li>
       </ul>
+      
     </nav>
   );
 }

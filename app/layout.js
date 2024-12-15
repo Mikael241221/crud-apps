@@ -1,11 +1,12 @@
+import Navbar from '@/components/Navbar.js';
 import './globals.css'; 
-import Navbar from '../components/Navbar'; 
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className='h-[100h]'>
         <Navbar />
-        <main className="container mx-auto p-4">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );
