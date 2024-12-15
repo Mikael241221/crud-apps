@@ -10,7 +10,7 @@ export default function PostDetail({ params }) {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState(null);
 
-  // Unwrap params using React.use()
+  // Unwrap params
   useEffect(() => {
     const unwrapParams = async () => {
       const resolvedParams = await params;
@@ -19,6 +19,7 @@ export default function PostDetail({ params }) {
     unwrapParams();
   }, [params]);
 
+  // Fetch post
   useEffect(() => {
     if (!id) return;
 
@@ -36,6 +37,7 @@ export default function PostDetail({ params }) {
     getPost();
   }, [id]);
 
+  // Handle delete
   const handleDelete = async () => {
     if (confirm('Are you sure you want to delete this post?')) {
       try {
@@ -47,16 +49,26 @@ export default function PostDetail({ params }) {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (!post) return <div>Post not found.</div>;
+  if (loading) return <div className="text-center mt-10 text-xl font-bold">Loading...</div>;
+  if (!post) return <div className="text-center mt-10 text-red-500">Post not found.</div>;
 
   return (
-    <div className='mt-7  space-y-5' >
-      <h1 className="text-3xl font-bold   ">{post.title}</h1>
-      <p>{post.body}</p>
-      <button className="bg-red-400 text-black text-md px-6 py-3 rounded-md hover:bg-red-800 hover:text-white transition-all duration-300" onClick={handleDelete}>
-        Delete Post
-      </button>
+    <div className="mt-10 mx-auto p-6 max-w-2xl bg-cyan-200 shadow-lg rounded-lg space-y-6">
+      {/* Post Title */}
+      <h1 className="text-4xl font-bold text-gray-800 text-center">{post.title}</h1>
+      
+      {/* Post Content */}
+      <p className="text-lg text-gray-700 leading-relaxed">{post.body}</p>
+      
+      {/* Delete Button */}
+      <div className="text-center">
+        <button
+          className="bg-red-500 text-white text-md px-6 py-3 rounded-md hover:bg-red-600 transition-all duration-300 shadow-md"
+          onClick={handleDelete}
+        >
+          Delete Post
+        </button>
+      </div>
     </div>
   );
 }

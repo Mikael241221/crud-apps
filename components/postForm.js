@@ -13,31 +13,43 @@ export default function PostForm({ initialData = { title: '', body: '' }, onSubm
   };
 
   return (
-    <form onSubmit={handleSubmit} className='p-10 bg-cyan-800/80 m-auto my-10 max-w-md rounded-xl text-xl ring-2 ring-blue-300'>
-      <label className='flex flex-col'>
-        <span className='font-bold text-cyan-100 mb-2'>Title:</span>
+    <form
+      onSubmit={handleSubmit}
+      className="p-8 bg-cyan-800/90 m-auto my-10 max-w-lg rounded-2xl shadow-lg text-lg ring-4 ring-cyan-300/60 transition-all duration-300 hover:ring-cyan-400"
+    >
+      {/* Title Input */}
+      <label className="flex flex-col mb-6">
+        <span className="text-cyan-100 font-semibold mb-2">Title:</span>
         <input
           type="text"
           name="title"
           value={formData.title}
           onChange={handleChange}
           required
-          className="p-3 rounded-md focus:outline-none focus:ring-cyan-300 focus:ring-4 text-black mb-3"
+          className="p-3 rounded-md border border-cyan-400 focus:outline-none focus:ring-4 focus:ring-cyan-300 text-gray-800 transition-all"
+          placeholder="Enter the post title"
         />
       </label>
-      <br />
-      <label className='flex flex-col'>
-        Body:
+
+      {/* Body Textarea */}
+      <label className="flex flex-col mb-6">
+        <span className="text-cyan-100 font-semibold mb-2">Body:</span>
         <textarea
           name="body"
           value={formData.body}
           onChange={handleChange}
           required
-          className="p-3 rounded-md focus:outline-none focus:ring-cyan-300 focus:ring-4 text-black mb-10"
+          rows="5"
+          className="p-3 rounded-md border border-cyan-400 focus:outline-none focus:ring-4 focus:ring-cyan-300 text-gray-800 resize-none transition-all"
+          placeholder="Enter the post body"
         />
       </label>
-      <br />
-      <button type="submit" className="bg-cyan-400 font-bold m-auto block py-3 px-6 rounded-xl text-black text-xl hover:scale-105">
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="bg-cyan-400 font-bold py-3 px-6 rounded-xl text-black hover:bg-cyan-300 hover:scale-105 transition-transform duration-300 block w-full text-center"
+      >
         Submit
       </button>
     </form>
