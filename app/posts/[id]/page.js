@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { deletePost, fetchPost } from 'utils/api';
+import { deletePost, fetchPost } from '@/utils/api';
 
 export default function PostDetail({ params }) {
   const router = useRouter();
