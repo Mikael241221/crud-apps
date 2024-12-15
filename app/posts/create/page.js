@@ -1,8 +1,8 @@
 "use client"
 
 
-import PostForm from '@/components/PostForm';
-import { createPost } from '../../../utils/api';
+import PostForm from 'components/PostForm';
+import { createPost } from 'utils/api';
 import { useRouter } from 'next/navigation';
 
 export default function CreatePostPage() {

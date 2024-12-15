@@ -1,6 +1,8 @@
-import PostForm from '../../../../components/PostForm';
-import { fetchPost, updatePost } from '../../../../utils/api';
+"use client"
+
+import PostForm from 'components/PostForm';
 import { useRouter } from 'next/navigation';
+import { fetchPost, updatePost } from 'utils/api';
 
 export default async function EditPostPage({ params }) {
   const { id } = params;
